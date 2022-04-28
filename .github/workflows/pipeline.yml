@@ -31,5 +31,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "pokedex-2k"
           heroku_email: "dobridobrev900@gmail.com"
-          healthcheck: "http://localhost:5000/health"
+          healthcheck: "http://pokedex-2k.herokuapp.com/health"
           checkstring: "ok"
