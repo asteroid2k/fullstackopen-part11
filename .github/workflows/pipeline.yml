@@ -33,3 +33,5 @@ jobs:
           heroku_email: "dobridobrev900@gmail.com"
           healthcheck: "http://pokedex-2k.herokuapp.com/health"
           checkstring: "ok"
+          delay: 2
+          rollbackonhealthcheckfailed: true
