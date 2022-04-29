@@ -16,5 +16,5 @@ jobs:
         run: echo "$SKIP_V"
       - name: sksksk
         env:
-          SKSK: ${{env.SKIP_V && false}}
+          SKSK: ${{$env.SKIP_V && false}}
         run: echo "$SKSK"
