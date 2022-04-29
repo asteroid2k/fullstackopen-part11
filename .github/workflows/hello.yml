@@ -13,6 +13,7 @@ jobs:
       - name: check for skip
         env:
           SKIP_V: ${{ contains(join(github.event.commits.*.message),'#skip') }}
+        run: echo "$SKIP_V"
       - name: sksksk
         env:
           SKSK: ${{env.SKIP_V && false}}
