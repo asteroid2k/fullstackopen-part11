@@ -3,7 +3,7 @@ name: Hello World!
 on:
   push:
     branches:
-      - "master"
+      - "discord-notif"
 
 jobs:
   hello_world_job:
