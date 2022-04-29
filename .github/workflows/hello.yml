@@ -10,23 +10,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: github context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: commits
-        env:
-          COMMITS: ${{ toJson(github.event.commits) }}
-        run: echo "$COMMITS"
-      - name: commit messages
-        env:
-          COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
-        run: echo "$COMMIT_MESSAGES"
-      - name: join commit messages
-        env:
-          COMMIT_MESSAGES_J: ${{ join(env.COMMIT_MESSAGES) }}
-        run: echo "$COMMIT_MESSAGES_J"
       - name: check for skip
         env:
-          SKIP_V: ${{ contains(env.COMMIT_MESSAGES_J,'#skip') }}
+          SKIP_V: ${{ contains(join(github.event.commits.*.message),'#skip') }}
         run: echo "$SKIP_V"
