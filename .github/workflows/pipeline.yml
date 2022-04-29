@@ -55,8 +55,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: "0"
+      - name: check for skip
+        env:
+          SKIP_V: ${{ contains(join(github.event.commits.*.message),'#skip') }}
+        run: echo "$SKIP_V"
       - name: Bump version and push tag
-        if: ${{ github.event_name == 'push' }}
+        if: ${{ github.event_name == 'push' && !SKIP_V}}
         uses: anothrNick/github-tag-action@1.36.0
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
