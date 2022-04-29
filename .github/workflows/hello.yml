@@ -3,7 +3,7 @@ name: Testing stuff
 on:
   push:
     branches:
-      - main
+      - view-commit-messages
 
 jobs:
   a_test_job:
